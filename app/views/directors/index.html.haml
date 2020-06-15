@@ -1,0 +1,16 @@
+
+-@directors.each do |director|
+  Name：
+  =link_to director.name, director_path(director)
+  %br
+  Home：
+  =director.from
+  %br
+  %hr
+=link_to "Create new director", new_director_path
+%br
+-# =link_to "Update information", edit_restaurant_path(@restaurant)
+-# %br
+-# =link_to "Back to index", restaurants_path
+-# %br
+-# =link_to "Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure to delete?"}

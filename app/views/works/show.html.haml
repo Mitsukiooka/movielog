@@ -1,0 +1,25 @@
+Title:
+=@work.title
+%br
+Release:
+=@work.release
+%br
+Director:
+=link_to @work.director.name, director_path(@work.director)
+%br
+Starring:
+=@work.starring
+%br
+Description:
+=@work.description
+%br
+%br
+-# =link_to "Update information", edit_restaurant_path(@restaurant)
+=link_to "Edit information", edit_work_path(@work)
+%br
+=link_to "Back to index", works_path
+%br
+=link_to "Delete work", work_path(@work), method: :delete, data:{confirm:"Are you sure to delete?"}
+
+-# %br
+-# =link_to "Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure to delete?"}

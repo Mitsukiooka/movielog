@@ -1,0 +1,29 @@
+
+-# -@works.each do |work|
+-#   Title：
+-#   =link_to work.title, work_path(work)
+-#   %br
+-#   Release：
+-#   =work.release
+-#   %br
+-#   Starring:
+-#   =work.starring
+-#   %br
+-#   Description:
+-#   =work.description
+-#   %br
+-#   %hr
+
+.container
+  %h2 Movie index
+
+.container
+  .row.list-group
+    -@works.each do |work|
+      .list-group-item
+        =link_to "#{work.title} / #{work.director.name}(#{work.release})", work_path(work)
+        =link_to higher_work_path(work), class: work.position == 1 ? 'disabled' : '' do
+          %i.fa.fa-arrow-up
+  .row
+    =link_to 'Add new movie', new_work_path, class: 'btn btn-primary'
+-# =link_to "Create new work", new_work_path

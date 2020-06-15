@@ -1,0 +1,21 @@
+Name:
+=@director.name
+%br
+Home:
+=@director.from
+%br
+Works:
+-@director.works.each do |work|
+  =link_to "#{work.title}(#{work.release})", work_path(work)
+  %br
+%br
+=link_to "Add New Movie", new_work_path(director_id: @director.id)
+%br
+=link_to "Edit information", edit_director_path(@director)
+%br
+=link_to "Back to index", directors_path
+%br
+=link_to "Delete director", director_path(@director), method: :delete, data:{confirm:"Are you sure to delete?"}
+
+-# %br
+-# =link_to "Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure to delete?"}
