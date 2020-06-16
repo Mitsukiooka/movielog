@@ -14,7 +14,7 @@
 -# =@work.description
 -# %br
 -# %br
--# -# =link_to "Update information", edit_restaurant_path(@restaurant)
+-#
 -# =link_to "Edit information", edit_work_path(@work)
 -# %br
 -# =link_to "Back to index", works_path
@@ -31,9 +31,10 @@
         .col-lg-8
           -# %h2.portfolio-title This is an example of portfolio detail
           .owl-carousel.portfolio-details-carousel
-            %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-1.jpg"}/
-            %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-2.jpg"}/
-            %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-3.jpg"}/
+            -# %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-1.jpg"}/
+            =image_tag @work.image_url, class: 'img-fluid' if @work.image.present?
+            -# %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-2.jpg"}/
+            -# %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-3.jpg"}/
         .col-lg-4.portfolio-info
           %h3=@work.title
           %ul
@@ -52,6 +53,8 @@
             -#   %a{:href => "#"} www.example.com
           %p=@work.description
           =link_to "Back to Index", works_path(anchor: 'portfolio')
+      =link_to "Edit information", edit_work_path(@work)
+      %br
       =link_to "Delete work", work_path(@work), method: :delete, data:{confirm:"Are you sure to delete?"}
   / End Portfolio Details
 / End #main

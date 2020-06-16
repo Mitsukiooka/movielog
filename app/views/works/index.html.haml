@@ -413,13 +413,14 @@
       -@works.each do |work|
         .col-lg-4.col-md-6.portfolio-item.filter-app
           .portfolio-wrap
-            %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-1.jpg"}/
+            -# %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-1.jpg"}/
+            =image_tag work.image_url(:thumb), class: 'img-fluid' if work.image.present?
             .portfolio-info
               %h4=link_to work.title, work_path(work)
               %p=work.release
               %p=work.director.name
               .portfolio-links
-                %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-1.jpg", :title => "App 1"}
+                %a.venobox{"data-gall" => "portfolioGallery", :href => "#{work.image_url}", :title => "App 1"}
                   %i.bx.bx-plus
                 -# %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
                 -#   %i.bx.bx-link
