@@ -31,13 +31,13 @@
 %header#header.header-tops
   .container
     %h1
-      %a{:href => "index.html"} Emily Jones
+      =link_to 'Movie Log', root_path
     / Uncomment below if you prefer to use an image logo
     / <a href="index.html" class="mr-auto"><img src="/img/logo.png" alt="" class="img-fluid"></a>
     %h2
-      I'm a passionate
-      %span graphic designer
-      from New York
+      In our Movie log,
+      %span Find Your Favorite
+
     %nav.nav-menu.d-none.d-lg-block
       %ul
         %li.active
@@ -410,105 +410,112 @@
           %li{"data-filter" => ".filter-card"} Card
           %li{"data-filter" => ".filter-web"} Web
     .row.portfolio-container
-      .col-lg-4.col-md-6.portfolio-item.filter-app
-        .portfolio-wrap
-          %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-1.jpg"}/
-          .portfolio-info
-            %h4 App 1
-            %p App
-            .portfolio-links
-              %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-1.jpg", :title => "App 1"}
-                %i.bx.bx-plus
-              %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
-                %i.bx.bx-link
-      .col-lg-4.col-md-6.portfolio-item.filter-web
-        .portfolio-wrap
-          %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-2.jpg"}/
-          .portfolio-info
-            %h4 Web 3
-            %p Web
-            .portfolio-links
-              %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-2.jpg", :title => "Web 3"}
-                %i.bx.bx-plus
-              %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
-                %i.bx.bx-link
-      .col-lg-4.col-md-6.portfolio-item.filter-app
-        .portfolio-wrap
-          %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-3.jpg"}/
-          .portfolio-info
-            %h4 App 2
-            %p App
-            .portfolio-links
-              %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-3.jpg", :title => "App 2"}
-                %i.bx.bx-plus
-              %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
-                %i.bx.bx-link
-      .col-lg-4.col-md-6.portfolio-item.filter-card
-        .portfolio-wrap
-          %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-4.jpg"}/
-          .portfolio-info
-            %h4 Card 2
-            %p Card
-            .portfolio-links
-              %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-4.jpg", :title => "Card 2"}
-                %i.bx.bx-plus
-              %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
-                %i.bx.bx-link
-      .col-lg-4.col-md-6.portfolio-item.filter-web
-        .portfolio-wrap
-          %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-5.jpg"}/
-          .portfolio-info
-            %h4 Web 2
-            %p Web
-            .portfolio-links
-              %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-5.jpg", :title => "Web 2"}
-                %i.bx.bx-plus
-              %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
-                %i.bx.bx-link
-      .col-lg-4.col-md-6.portfolio-item.filter-app
-        .portfolio-wrap
-          %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-6.jpg"}/
-          .portfolio-info
-            %h4 App 3
-            %p App
-            .portfolio-links
-              %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-6.jpg", :title => "App 3"}
-                %i.bx.bx-plus
-              %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
-                %i.bx.bx-link
-      .col-lg-4.col-md-6.portfolio-item.filter-card
-        .portfolio-wrap
-          %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-7.jpg"}/
-          .portfolio-info
-            %h4 Card 1
-            %p Card
-            .portfolio-links
-              %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-7.jpg", :title => "Card 1"}
-                %i.bx.bx-plus
-              %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
-                %i.bx.bx-link
-      .col-lg-4.col-md-6.portfolio-item.filter-card
-        .portfolio-wrap
-          %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-8.jpg"}/
-          .portfolio-info
-            %h4 Card 3
-            %p Card
-            .portfolio-links
-              %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-8.jpg", :title => "Card 3"}
-                %i.bx.bx-plus
-              %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
-                %i.bx.bx-link
-      .col-lg-4.col-md-6.portfolio-item.filter-web
-        .portfolio-wrap
-          %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-9.jpg"}/
-          .portfolio-info
-            %h4 Web 3
-            %p Web
-            .portfolio-links
-              %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-9.jpg", :title => "Web 3"}
-                %i.bx.bx-plus
-              %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
-                %i.bx.bx-link
+      -@works.each do |work|
+        .col-lg-4.col-md-6.portfolio-item.filter-app
+          .portfolio-wrap
+            %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-1.jpg"}/
+            .portfolio-info
+              %h4=link_to work.title, work_path(work)
+              %p=work.release
+              %p=work.director.name
+              .portfolio-links
+                %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-1.jpg", :title => "App 1"}
+                  %i.bx.bx-plus
+                -# %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
+                -#   %i.bx.bx-link
+                =link_to work_path(work) do
+                  %i.bx.bx-link
+    .container
+      =link_to 'Add new movie', new_work_path, class: 'btn'
+
+      -# .col-lg-4.col-md-6.portfolio-item.filter-web
+      -#   .portfolio-wrap
+      -#     %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-2.jpg"}/
+      -#     .portfolio-info
+      -#       %h4 Web 3
+      -#       %p Web
+      -#       .portfolio-links
+      -#         %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-2.jpg", :title => "Web 3"}
+      -#           %i.bx.bx-plus
+      -#         %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
+      -#           %i.bx.bx-link
+      -# .col-lg-4.col-md-6.portfolio-item.filter-app
+      -#   .portfolio-wrap
+      -#     %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-3.jpg"}/
+      -#     .portfolio-info
+      -#       %h4 App 2
+      -#       %p App
+      -#       .portfolio-links
+      -#         %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-3.jpg", :title => "App 2"}
+      -#           %i.bx.bx-plus
+      -#         %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
+      -#           %i.bx.bx-link
+      -# .col-lg-4.col-md-6.portfolio-item.filter-card
+      -#   .portfolio-wrap
+      -#     %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-4.jpg"}/
+      -#     .portfolio-info
+      -#       %h4 Card 2
+      -#       %p Card
+      -#       .portfolio-links
+      -#         %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-4.jpg", :title => "Card 2"}
+      -#           %i.bx.bx-plus
+      -#         %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
+      -#           %i.bx.bx-link
+      -# .col-lg-4.col-md-6.portfolio-item.filter-web
+      -#   .portfolio-wrap
+      -#     %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-5.jpg"}/
+      -#     .portfolio-info
+      -#       %h4 Web 2
+      -#       %p Web
+      -#       .portfolio-links
+      -#         %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-5.jpg", :title => "Web 2"}
+      -#           %i.bx.bx-plus
+      -#         %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
+      -#           %i.bx.bx-link
+      -# .col-lg-4.col-md-6.portfolio-item.filter-app
+      -#   .portfolio-wrap
+      -#     %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-6.jpg"}/
+      -#     .portfolio-info
+      -#       %h4 App 3
+      -#       %p App
+      -#       .portfolio-links
+      -#         %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-6.jpg", :title => "App 3"}
+      -#           %i.bx.bx-plus
+      -#         %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
+      -#           %i.bx.bx-link
+      -# .col-lg-4.col-md-6.portfolio-item.filter-card
+      -#   .portfolio-wrap
+      -#     %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-7.jpg"}/
+      -#     .portfolio-info
+      -#       %h4 Card 1
+      -#       %p Card
+      -#       .portfolio-links
+      -#         %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-7.jpg", :title => "Card 1"}
+      -#           %i.bx.bx-plus
+      -#         %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
+      -#           %i.bx.bx-link
+      -# .col-lg-4.col-md-6.portfolio-item.filter-card
+      -#   .portfolio-wrap
+      -#     %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-8.jpg"}/
+      -#     .portfolio-info
+      -#       %h4 Card 3
+      -#       %p Card
+      -#       .portfolio-links
+      -#         %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-8.jpg", :title => "Card 3"}
+      -#           %i.bx.bx-plus
+      -#         %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
+      -#           %i.bx.bx-link
+      -# .col-lg-4.col-md-6.portfolio-item.filter-web
+      -#   .portfolio-wrap
+      -#     %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-9.jpg"}/
+      -#     .portfolio-info
+      -#       %h4 Web 3
+      -#       %p Web
+      -#       .portfolio-links
+      -#         %a.venobox{"data-gall" => "portfolioGallery", :href => "/img/portfolio/portfolio-9.jpg", :title => "Web 3"}
+      -#           %i.bx.bx-plus
+      -#         %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
+      -#           %i.bx.bx-link
 / End Portfolio Section
 / ======= Contact Section =======
 %section#contact.contact

@@ -1,25 +1,64 @@
-Title:
-=@work.title
-%br
-Release:
-=@work.release
-%br
-Director:
-=link_to @work.director.name, director_path(@work.director)
-%br
-Starring:
-=@work.starring
-%br
-Description:
-=@work.description
-%br
-%br
--# =link_to "Update information", edit_restaurant_path(@restaurant)
-=link_to "Edit information", edit_work_path(@work)
-%br
-=link_to "Back to index", works_path
-%br
-=link_to "Delete work", work_path(@work), method: :delete, data:{confirm:"Are you sure to delete?"}
+-# Title:
+-# =@work.title
+-# %br
+-# Release:
+-# =@work.release
+-# %br
+-# Director:
+-# =link_to @work.director.name, director_path(@work.director)
+-# %br
+-# Starring:
+-# =@work.starring
+-# %br
+-# Description:
+-# =@work.description
+-# %br
+-# %br
+-# -# =link_to "Update information", edit_restaurant_path(@restaurant)
+-# =link_to "Edit information", edit_work_path(@work)
+-# %br
+-# =link_to "Back to index", works_path
+-# %br
+-# =link_to "Delete work", work_path(@work), method: :delete, data:{confirm:"Are you sure to delete?"}
 
 -# %br
 -# =link_to "Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure to delete?"}
+%main#main
+  / ======= Portfolio Details =======
+  #portfolio-details.portfolio-details
+    .container
+      .row
+        .col-lg-8
+          -# %h2.portfolio-title This is an example of portfolio detail
+          .owl-carousel.portfolio-details-carousel
+            %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-1.jpg"}/
+            %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-2.jpg"}/
+            %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-3.jpg"}/
+        .col-lg-4.portfolio-info
+          %h3=@work.title
+          %ul
+            %li
+              %strong="Release: "
+              =@work.release
+            %li
+              %strong="Director: "
+              =link_to @work.director.name, director_path(@work.director)
+            %li
+              %strong="Starring: "
+              =@work.starring
+            -# %li
+            -#   %strong> Project URL
+            -#   \:
+            -#   %a{:href => "#"} www.example.com
+          %p=@work.description
+          =link_to "Back to Index", works_path(anchor: 'portfolio')
+      =link_to "Delete work", work_path(@work), method: :delete, data:{confirm:"Are you sure to delete?"}
+  / End Portfolio Details
+/ End #main
+.credits
+  / All the links in the footer should remain intact.
+  / You can delete the links only if you purchased the pro version.
+  / Licensing information: https://bootstrapmade.com/license/
+  / Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
+  Designed by
+  %a{:href => "https://bootstrapmade.com/"} BootstrapMade
