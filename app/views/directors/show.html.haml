@@ -1,21 +1,61 @@
-Name:
-=@director.name
-%br
-Home:
-=@director.from
-%br
-Works:
--@director.works.each do |work|
-  =link_to "#{work.title}(#{work.release})", work_path(work)
-  %br
-%br
-=link_to "Add New Movie", new_work_path(director_id: @director.id)
-%br
-=link_to "Edit information", edit_director_path(@director)
-%br
-=link_to "Back to index", directors_path
-%br
-=link_to "Delete director", director_path(@director), method: :delete, data:{confirm:"Are you sure to delete?"}
+-# Name:
+-# =@director.name
+-# %br
+-# Home:
+-# =@director.from
+-# %br
+-# Directors:
+-# -@director.directors.each do |director|
+-#   =link_to "#{director.title}(#{director.release})", director_path(director)
+-#   %br
+-# %br
+-# =link_to "Add New Movie", new_director_path(director_id: @director.id)
+-# %br
+-# =link_to "Edit information", edit_director_path(@director)
+-# %br
+-# =link_to "Back to index", directors_path
+-# %br
+-# =link_to "Delete director", director_path(@director), method: :delete, data:{confirm:"Are you sure to delete?"}
 
 -# %br
 -# =link_to "Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure to delete?"}
+%main#main
+  / ======= Portfolio Details =======
+  #portfolio-details.portfolio-details
+    .container
+      .row
+        .col-lg-8
+          -# %h2.portfolio-title This is an example of portfolio detail
+          
+        .col-lg-4.portfolio-info
+          %h3=@director.name
+          %ul
+            %li
+              %strong="From: "
+              =@director.from
+            %li
+              %strong="Works: "
+              -@director.works.each do |work|
+              =link_to "#{work.title}, (#{work.release})", work_path(work)
+            %li
+            -#   %strong="Starring: "
+            -#   =@director.starring
+            -# %li
+            -#   %strong> Project URL
+            -#   \:
+            -#   %a{:href => "#"} www.example.com
+          -# %p=@director.description
+          =link_to "Back to Index", directors_path(anchor: 'portfolio')
+          %br
+          =link_to "Edit information", edit_director_path(@director)
+          %br
+          =link_to "Delete director", director_path(@director), method: :delete, data:{confirm:"Are you sure to delete?"}
+  / End Portfolio Details
+/ End #main
+-# .credits
+-#   / All the links in the footer should remain intact.
+-#   / You can delete the links only if you purchased the pro version.
+-#   / Licensing information: https://bootstrapmade.com/license/
+-#   / Purchase the pro version with directoring PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
+-#   Designed by
+-#   %a{:href => "https://bootstrapmade.com/"} BootstrapMade
