@@ -52,7 +52,7 @@ class WorksController < ApplicationController
 
   def work_params
       params[:work].permit(:title, :release, :starring, :description, :director_id,
-        :image, :remove_image, :image_cache, :genre)
+        :image, :remove_image, :image_cache, genre_ids: [])
   end
 
 end

@@ -50,8 +50,12 @@
             %li
               %strong="Starring: "
               =@work.starring
-            -# %li
-            -#   %strong> Project URL
+            %li
+              %strong="Genre: "
+              -@work.genres.each do |genre|
+                .badge.badge-dark
+                  =link_to genre.name, genre_path(id: genre.id, anchor:'portfolio')
+              -# %strong> Project URL
             -#   \:
             -#   %a{:href => "#"} www.example.com
           %p=@work.description

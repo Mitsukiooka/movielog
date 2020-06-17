@@ -405,10 +405,11 @@
     .row
       .col-lg-12.d-flex.justify-content-center
         %ul#portfolio-flters
-          %li.filter-active{"data-filter" => "*"} All
-          %li{"data-filter" => ".filter-Sci-fi"} Sci-fi
-          %li{"data-filter" => ".filter-Action"} Action
-          %li{"data-filter" => ".filter-Romance"} Romance
+          %li.filter-active
+            =link_to 'All', works_path(anchor: 'portfolio'), class: 'link_white'
+          -Genre.all.each do |genre|
+            %li
+              =link_to genre.name, genre_path(id: genre.id, anchor: 'portfolio'), class: 'link_white'
     .row.portfolio-container
       -@works.each do |work|
         .col-lg-4.col-md-6.portfolio-item.filter-app

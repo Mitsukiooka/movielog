@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'genres/show'
   get 'directors/index'
   get 'works/index'
   get 'home/index'
@@ -7,5 +8,6 @@ Rails.application.routes.draw do
     get 'higher' => 'works#move_higher', as: 'higher', on: :member
   end
   resources :directors
+  resources :genres, only: [:show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

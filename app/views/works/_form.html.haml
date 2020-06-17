@@ -2,6 +2,7 @@
   =f.text_field :title
   =f.collection_select :director_id, Director.all, :id, :name, include_blank: true, class: 'form-control '
   =f.text_field :release
+  =f.collection_check_boxes :genre_ids, Genre.all, :id, :name, class: 'form-control'
   =f.text_field :starring
   =f.text_area :description
   =f.file_field :image
