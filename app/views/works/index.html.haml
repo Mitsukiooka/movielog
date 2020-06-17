@@ -423,8 +423,9 @@
               %p=work.release
               %p=work.director.name
               .portfolio-links
-                %a.venobox{"data-gall" => "portfolioGallery", :href => "#{work.image_url}", :title => "App 1"}
-                  %i.bx.bx-plus
+                -if work.image.present?
+                  %a.venobox{"data-gall" => "portfolioGallery", :href => "#{work.image_url}", :title => "App 1"}
+                    %i.bx.bx-plus
                 -# %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
                 -#   %i.bx.bx-link
                 =link_to work_path(work) do

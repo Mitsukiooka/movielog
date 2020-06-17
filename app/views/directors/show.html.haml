@@ -26,7 +26,12 @@
       .row
         .col-lg-8
           -# %h2.portfolio-title This is an example of portfolio detail
-          
+          .owl-carousel.portfolio-details-carousel
+            -# %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-1.jpg"}/
+            -if @director.image.present?
+              =image_tag @director.image_url, class: 'img-fluid'
+            -else
+              =image_tag '/img/default_work.png', class: 'show_image'
         .col-lg-4.portfolio-info
           %h3=@director.name
           %ul
@@ -35,9 +40,11 @@
               =@director.from
             %li
               %strong="Works: "
+              %br
               -@director.works.each do |work|
-              =link_to "#{work.title}, (#{work.release})", work_path(work)
-            %li
+                =link_to "#{work.title}, (#{work.release})", work_path(work)
+                %br
+            -# %li
             -#   %strong="Starring: "
             -#   =@director.starring
             -# %li

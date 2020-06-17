@@ -4,7 +4,6 @@ class Director < ApplicationRecord
   validates :name, uniqueness: true
   validates :from, presence: true
 
-  acts_as_list
 
   has_many :works
 end

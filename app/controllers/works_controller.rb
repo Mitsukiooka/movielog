@@ -5,7 +5,7 @@ class WorksController < ApplicationController
   end
 
   def index
-    @works = Work.all.by_position
+    @works = Work.all
   end
 
   def new
