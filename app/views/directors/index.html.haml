@@ -1,16 +1,63 @@
 
--@directors.each do |director|
-  Name：
-  =link_to director.name, director_path(director)
-  %br
-  Home：
-  =director.from
-  %br
-  %hr
-=link_to "Create new director", new_director_path
-%br
+-# -@directors.each do |director|
+-#   Name：
+-#   =link_to director.name, director_path(director)
+-#   %br
+-#   Home：
+-#   =director.from
+-#   %br
+-#   %hr
+-# =link_to "Add new director", new_director_path
+-# %br
 -# =link_to "Update information", edit_restaurant_path(@restaurant)
 -# %br
 -# =link_to "Back to index", restaurants_path
 -# %br
 -# =link_to "Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure to delete?"}
+%header#header.header-tops
+  .container
+    %h1
+      =link_to 'Movie Log', root_path
+    / Uncomment below if you prefer to use an image logo
+    / <a href="index.html" class="mr-auto"><img src="/img/logo.png" alt="" class="img-fluid"></a>
+    %h2
+      In our Movie log,
+      %span Find Your Favorite
+
+    %nav.nav-menu.d-none.d-lg-block
+      %ul
+
+        %li
+          %a{:href => "#portfolio"} Portfolio
+        %li
+          %a{:href => "#contact"} Contact
+
+%section#portfolio.portfolio
+  .container
+    .section-title
+      %h2 Portfolio
+      %p My Directors
+    .row
+
+.row.portfolio-container
+  -@directors.each do |director|
+    .col-lg-4.col-md-6.portfolio-item.filter-app
+      .portfolio-wrap
+        -# %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-1.jpg"}/
+        -# -if director.image.present?
+        -#   =image_tag director.image_url(:thumb), class: 'img-fluid'
+        -# -else
+        -#   =image_tag '/img/default_director.png', class: 'index_thumb'
+        .portfolio-info
+          %h4=link_to director.name, director_path(director)
+          %p=director.from
+          -# %p=director.works.title
+          .portfolio-links
+            -# %a.venobox{"data-gall" => "portfolioGallery", :href => "#{director.image_url}", :title => "App 1"}
+            -#   %i.bx.bx-plus
+            -# %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
+            -#   %i.bx.bx-link
+            =link_to director_path(director) do
+              %i.bx.bx-link
+.container
+  =link_to 'Add new director', new_director_path, class: 'btn'

@@ -5,6 +5,13 @@
   =f.text_field :starring
   =f.text_area :description
   =f.file_field :image
+  =f.hidden_field :image_cache
+  -if @work.image?
+    .m-t-5
+      =image_tag @work.image_url(:thumb)
+      .checkbox.checkbox-primary.m-t-5
+        =f.check_box_without_bootstrap :remove_image
+        =f.label :remove_image, 'Image Delete'
   =f.submit class:'btn btn-outline-success'
 
 -# %section#contact.contact
@@ -43,23 +50,24 @@
 -#           %i.bx.bx-phone-call
 -#           %h3 Call Me
 -#           %p +1 5589 55488 55
--#     %form.php-email-form.mt-4{:action => "forms/contact.php", :method => "post", :role => "form"}
--#       .form-row
--#         .col-md-6.form-group
--#           %input#name.form-control{"data-msg" => "Please enter at least 4 chars", "data-rule" => "minlen:4", :name => "name", :placeholder => "Your Name", :type => "text"}/
--#           .validate
--#         .col-md-6.form-group
--#           %input#email.form-control{"data-msg" => "Please enter a valid email", "data-rule" => "email", :name => "email", :placeholder => "Your Email", :type => "email"}/
--#           .validate
--#       .form-group
--#         %input#subject.form-control{"data-msg" => "Please enter at least 8 chars of subject", "data-rule" => "minlen:4", :name => "subject", :placeholder => "Subject", :type => "text"}/
+
+-# %form.php-email-form.mt-4{:action => "forms/contact.php", :method => "post", :role => "form"}
+-#   .form-row
+-#     .col-md-6.form-group
+-#       %input#name.form-control{"data-msg" => "Please enter at least 4 chars", "data-rule" => "minlen:4", :name => "name", :placeholder => "Your Name", :type => "text"}/
 -#         .validate
--#       .form-group
--#         %textarea.form-control{"data-msg" => "Please write something for us", "data-rule" => "required", :name => "message", :placeholder => "Message", :rows => "5"}
+-#         .col-md-6.form-group
+-#         %input#email.form-control{"data-msg" => "Please enter a valid email", "data-rule" => "email", :name => "email", :placeholder => "Your Email", :type => "email"}/
 -#         .validate
--#       .mb-3
--#         .loading Loading
--#         .error-message
--#         .sent-message Your message has been sent. Thank you!
--#       .text-center
--#         %button{:type => "submit"} Send Message
+-#     .form-group
+-#       %input#subject.form-control{"data-msg" => "Please enter at least 8 chars of subject", "data-rule" => "minlen:4", :name => "subject", :placeholder => "Subject", :type => "text"}/
+-#       .validate
+-#     .form-group
+-#       %textarea.form-control{"data-msg" => "Please write something for us", "data-rule" => "required", :name => "message", :placeholder => "Message", :rows => "5"}
+-#       .validate
+-#     .mb-3
+-#       .loading Loading
+-#       .error-message
+-#       .sent-message Your message has been sent. Thank you!
+-#     .text-center
+-#       %button{:type => "submit"} Send Message

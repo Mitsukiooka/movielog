@@ -32,7 +32,10 @@
           -# %h2.portfolio-title This is an example of portfolio detail
           .owl-carousel.portfolio-details-carousel
             -# %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-1.jpg"}/
-            =image_tag @work.image_url, class: 'img-fluid' if @work.image.present?
+            -if @work.image.present?
+              =image_tag @work.image_url, class: 'img-fluid'
+            -else
+              =image_tag '/img/default_work.png', class: 'show_image'
             -# %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-2.jpg"}/
             -# %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-3.jpg"}/
         .col-lg-4.portfolio-info
