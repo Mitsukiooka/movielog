@@ -15,3 +15,35 @@
 .link_white{
   color: #FFFFFF;
 }
+
+.pagination{
+  padding: 30px 0;
+}
+
+.pagination ul{
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.pagination a{
+  display: inline-block;
+  padding: 10px 18px;
+  color: #FFFFFF;
+}
+
+/* NINE */
+
+.p9 a{
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0;
+  text-align: center;
+  margin: auto 5px;
+}
+
+.p9 a.is-active{
+  border: 1px solid #ff1493;
+  border-radius: 100%;
+}
