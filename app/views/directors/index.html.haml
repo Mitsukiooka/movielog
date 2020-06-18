@@ -418,6 +418,7 @@
                 -#   %i.bx.bx-link
                 =link_to director_path(director) do
                   %i.bx.bx-link
+    =paginate @directors, params: {anchor: 'portfolio'}
     .container
       =link_to 'Add new movie', new_director_path, class: 'btn'
 

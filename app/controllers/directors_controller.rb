@@ -5,7 +5,7 @@ class DirectorsController < ApplicationController
   end
 
   def index
-    @directors = Director.all
+    @directors = Director.all.page(params[:page]).per(3)
   end
 
   def new
