@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'profiles/show'
   devise_for :users
-  get 'genres/show'
-  get 'directors/index'
-  get 'works/index'
   get 'home/index'
   root to: 'home#index'
   resources :works do

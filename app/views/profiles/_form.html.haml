@@ -1,0 +1,27 @@
+= bootstrap_form_with model: @profile, local: true do |f|
+  .form-row
+    .col-md-6
+      = f.text_field :first_name, autofocus: true, placeholder: 'First name', class: 'form-control'
+    .col-md-6
+      = f.text_field :last_name, placeholder: "Last name", class: 'form-control'
+  = f.text_field :age, placeholder: "Date of birth YYYY/MM/DD", class: 'form_control'
+  = f.text_field :from, placeholder: "Where are you from", class: 'from_control'
+  = f.text_field :bestfilm, placeholder: "Your Best Film", class: 'form_control'
+  = f.text_field :bestactor, placeholder: "Your Best Actor", class: 'form_control'
+  = f.text_field :bestdirector, placeholder: "Your Best Director", class: 'form_control'
+  = f.text_area :description, placeholder: "Description", class: 'form_control'
+  .form-row
+    .col-md-6
+      = f.text_field :instagram, autofocus: true, placeholder: 'Instgram account', class: 'form-control'
+    .col-md-6
+      = f.text_field :twitter, placeholder: "Twitter account", class: 'form-control'
+  =f.file_field :image
+  =f.hidden_field :image_cache
+  -if @profile.image?
+    .m-t-5
+      =image_tag @profile.image_url(:thumb)
+      .checkbox.checkbox-primary.m-t-5
+        =f.check_box_without_bootstrap :remove_image
+        =f.label :remove_image, 'Image Delete'
+  .text-center
+    = f.submit "Submit", class: 'btn submitbtn'

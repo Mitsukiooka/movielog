@@ -1,40 +1,17 @@
--# =bootstrap_form_with model: @work, local: true do |f|
--#   =f.text_field :title
--#   =f.collection_select :director_id, Director.all, :id, :name, include_blank: true, class: 'form-control '
--#   =f.text_field :release
--#   =f.collection_check_boxes :genre_ids, Genre.all, :id, :name, class: 'form-control'
--#   =f.text_field :starring
--#   =f.text_area :description
--#   =f.file_field :image
--#   =f.hidden_field :image_cache
--#   -if @work.image?
--#     .m-t-5
--#       =image_tag @work.image_url(:thumb)
--#       .checkbox.checkbox-primary.m-t-5
--#         =f.check_box_without_bootstrap :remove_image
--#         =f.label :remove_image, 'Image Delete'
--#   =f.submit class:'btn btn-outline-success'
-
-%section#contact.contact.section-show
-  .container
-    .section-title
-      %h2 New Movie
-      %p New Movie
-    =bootstrap_form_with model: @work, local: true, class: 'php-email-form mt-4' do |f|
-
-      =f.text_field :title, autofocus: true, placeholder: 'Title', class: 'form-control'
-      =f.collection_select :director_id, Director.all, :id, :name, include_blank: true, class: 'form-control '
-      =f.text_field :release, autofocus: true, placeholder: 'Release', class: 'form-control'
-      =f.collection_check_boxes :genre_ids, Genre.all, :id, :name, class: 'form-control'
-      =f.text_field :starring, autofocus: true, placeholder: 'Starring', class: 'form-control'
-      =f.text_area :description, placeholder: 'Description'
-      =f.file_field :image
-      =f.hidden_field :image_cache
-      -if @work.image?
-        .m-t-5
-          =image_tag @work.image_url(:thumb)
-          .checkbox.checkbox-primary.m-t-5
-            =f.check_box_without_bootstrap :remove_image
-            =f.label :remove_image, 'Image Delete'
-      .text-center
-        = f.submit "Submit", class: 'btn submitbtn'
+=bootstrap_form_with model: @work, local: true do |f|
+  =f.text_field :title, autofocus: true, placeholder: 'Title', class: 'form-control'
+  =f.collection_select :director_id, Director.all, :id, :name, include_blank: true, class: 'form-control '
+  =f.text_field :release, autofocus: true, placeholder: 'Release', class: 'form-control'
+  =f.collection_check_boxes :genre_ids, Genre.all, :id, :name, class: 'form-control'
+  =f.text_field :starring, autofocus: true, placeholder: 'Starring', class: 'form-control'
+  =f.text_area :description, placeholder: 'Description'
+  =f.file_field :image
+  =f.hidden_field :image_cache
+  -if @work.image?
+    .m-t-5
+      =image_tag @work.image_url(:thumb)
+      .checkbox.checkbox-primary.m-t-5
+        =f.check_box_without_bootstrap :remove_image
+        =f.label :remove_image, 'Image Delete'
+  .text-center
+    = f.submit "Submit", class: 'btn submitbtn'

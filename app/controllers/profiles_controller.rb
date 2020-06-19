@@ -43,7 +43,21 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params[:profile].permit(:first_name, :last_name, :from, :image, :remove_image, :image_cache)
+    params[:profile].permit(
+      :first_name,
+      :last_name,
+      :from,
+      :image,
+      :remove_image,
+      :image_cache, 
+      :description,
+      :age,
+      :bestfilm,
+      :bestactor,
+      :bestdirector,
+      :instagram,
+      :twitter
+    )
   end
 
 end

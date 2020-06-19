@@ -15,7 +15,7 @@ class DirectorsController < ApplicationController
   def create
     @director = Director.new(director_params)
     if @director.save
-      redirect_to directors_path
+      redirect_to directors_path(anchor: 'portfolio')
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class DirectorsController < ApplicationController
 
   def update
     if @director.update(director_params)
-      redirect_to directors_path
+      redirect_to directors_path(anchor: 'portfolio')
     else
       render 'edit'
     end
@@ -34,7 +34,7 @@ class DirectorsController < ApplicationController
 
   def destroy
     @director.destroy
-    redirect_to directors_path
+    redirect_to directors_path(anchor: 'portfolio')
   end
 
 
@@ -46,7 +46,7 @@ class DirectorsController < ApplicationController
   end
 
   def director_params
-      params[:director].permit(:name, :from, :image)
+      params[:director].permit(:name, :from, :image, :remove_image, :image_cache)
   end
 
 end

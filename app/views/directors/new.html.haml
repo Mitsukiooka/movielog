@@ -1,7 +1,8 @@
-
-=render 'form'
--# =link_to "Update information", edit_restaurant_path(@restaurant)
--# %br
-=link_to "Back to index", directors_path
--# %br
--# =link_to "Delete", restaurant_path(@restaurant), method: :delete, data: {confirm: "Are you sure to delete?"}
+%section#contact.contact.section-show
+  .container
+    .section-title
+      %h2 New Director
+      %p New Director
+    =render 'form'
+    =link_to "Back to index", directors_path
+    

@@ -1,4 +1,5 @@
 //= require jquery/jquery.min
+//= require jquery_ujs
 //= require bootstrap/js/bootstrap.bundle.min
 //= require jquery.easing/jquery.easing.min
 //= require php-email-form/validate
