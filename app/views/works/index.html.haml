@@ -62,6 +62,7 @@
                 -#   %i.bx.bx-link
                 =link_to work_path(work) do
                   %i.bx.bx-link
+
     =paginate @works, params: {anchor: 'portfolio'}
     .container
       =link_to 'Add new movie', new_work_path, class: 'btn submitbtn'

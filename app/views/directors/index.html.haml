@@ -21,13 +21,6 @@
     .section-title
       %h2 Portfolio
       %p My Directors
-    .row
-      .col-lg-12.d-flex.justify-content-center
-        %ul#portfolio-flters
-          %li.filter-active{"data-filter" => "*"} All
-          %li{"data-filter" => ".filter-app"} Sci-fi
-          %li{"data-filter" => ".filter-card"} Action
-          %li{"data-filter" => ".filter-web"} Romance
     .row.portfolio-container
       -@directors.each do |director|
         .col-lg-4.col-md-6.portfolio-item.filter-app
@@ -51,7 +44,7 @@
                   %i.bx.bx-link
     =paginate @directors, params: {anchor: 'portfolio'}
     .container
-      =link_to 'Add new movie', new_director_path, class: 'btn submitbtn'
+      =link_to 'Add new director', new_director_path, class: 'btn submitbtn'
 
 
 / ======= Contact Section =======
