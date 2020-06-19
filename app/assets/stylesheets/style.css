@@ -39,7 +39,7 @@ a {
 }
 
 a:hover {
-  color: #35e888;
+  color: #ffb6c1;
   text-decoration: none;
 }
 
@@ -360,7 +360,7 @@ section .container {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: #4ceb95;
+  background: #ff1493;
   margin: 4px 10px;
 }
 

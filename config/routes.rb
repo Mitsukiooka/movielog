@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'profiles/show'
+  devise_for :users
   get 'genres/show'
   get 'directors/index'
   get 'works/index'
@@ -9,5 +11,6 @@ Rails.application.routes.draw do
   end
   resources :directors
   resources :genres, only: [:show]
+  resources :profiles, except: [:index]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
