@@ -24,5 +24,6 @@
           -else
             %li
               =link_to "Sign out", destroy_user_session_path
+
           %li
-            =link_to "Contact", works_path(anchor: 'contact')
+            =link_to "Profile", profile_path(current_user.profile)

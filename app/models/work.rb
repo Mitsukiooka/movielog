@@ -12,7 +12,7 @@ class Work < ApplicationRecord
 
   acts_as_list
 
-  scope :by_position, ->{ order(position: :asc) }
+  scope :by_update, ->{ order(updated_at: :desc) }
 
 
 end

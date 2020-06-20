@@ -49,7 +49,7 @@ class ProfilesController < ApplicationController
       :from,
       :image,
       :remove_image,
-      :image_cache, 
+      :image_cache,
       :description,
       :age,
       :bestfilm,

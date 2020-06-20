@@ -5,7 +5,7 @@ class WorksController < ApplicationController
   end
 
   def index
-    @works = Work.all.page(params[:page]).per(9)
+    @works = Work.all.by_update.page(params[:page]).per(9)
   end
 
   def new
@@ -16,7 +16,7 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
-      redirect_to works_path
+      redirect_to works_path(anchor: 'portfolio')
     else
       render 'new'
     end
@@ -27,7 +27,7 @@ class WorksController < ApplicationController
 
   def update
     if @work.update(work_params)
-      redirect_to works_path
+      redirect_to works_path(anchor: 'portfolio')
     else
       render 'edit'
     end
@@ -35,7 +35,7 @@ class WorksController < ApplicationController
 
   def destroy
     @work.destroy
-    redirect_to works_path
+    redirect_to works_path(anchor: 'portfolio')
   end
 
   def move_higher
@@ -54,5 +54,6 @@ class WorksController < ApplicationController
       params[:work].permit(:title, :release, :starring, :description, :director_id,
         :image, :remove_image, :image_cache, genre_ids: [])
   end
+
 
 end
