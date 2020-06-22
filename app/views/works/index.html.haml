@@ -33,6 +33,10 @@
     .section-title
       %h2 Portfolio
       %p My Works
+    .mb-4
+      =search_form_for @q, url: works_path(anchor: 'portfolio') do |f|
+        =f.search_field :title_or_description_cont, placeholder: "Keyword"
+        =f.submit "Go", params: {anchor: 'portfolio'}
     .row
       .col-lg-12.d-flex.justify-content-center
         %ul#portfolio-flters

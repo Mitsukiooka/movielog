@@ -6,6 +6,8 @@ class DirectorsController < ApplicationController
 
   def index
     @directors = Director.all.page(params[:page]).per(3)
+    @q = Director.all.page(params[:page]).per(3).ransack(params[:q])
+    @directors = @q.result(distinct: true)
   end
 
   private
