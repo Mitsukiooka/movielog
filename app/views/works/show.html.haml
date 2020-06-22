@@ -60,9 +60,9 @@
             -#   %a{:href => "#"} www.example.com
           %p=@work.description
           =link_to "Back to Index", works_path(anchor: 'portfolio')
-      =link_to "Edit information", edit_work_path(@work)
+      =link_to "Edit information", edit_work_path(@work), class: 'btn submitbtn'
       %br
-      =link_to "Delete work", work_path(@work), method: :delete, data:{confirm:"Are you sure to delete?"}
+      =link_to "Delete work", work_path(@work), method: :delete, data:{confirm:"Are you sure to delete?"}, class: 'btn submitbtn'
   / End Portfolio Details
 / End #main
 .credits

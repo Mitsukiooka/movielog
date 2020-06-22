@@ -8,6 +8,6 @@
       =image_tag @director.image_url(:thumb)
       .checkbox.checkbox-primary.m-t-5
         =f.check_box_without_bootstrap :remove_image
-        =f.label :remove_image, 'Image Delete'
+        =f.label :remove_image, 'Image Delete', class: 'btn submitbtn'
   .text-center
     = f.submit "Submit", class: 'btn submitbtn'
