@@ -60,7 +60,7 @@
             -#   %a{:href => "#"} www.example.com
           %p=@work.description
           =link_to "Back to Index", works_path(anchor: 'portfolio')
-          =link_to "Post review"
+          =link_to "Post review", new_login_review_path(@work)
       .container
         =link_to "Edit information", edit_login_work_path(@work), class: 'btn submitbtn'
         =link_to "Delete work", login_work_path(@work), method: :delete, data:{confirm:"Are you sure to delete?"}, class: 'btn submitbtn'
