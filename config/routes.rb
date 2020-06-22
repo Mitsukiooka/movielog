@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   resources :genres, only: [:show]
 
 
+
   namespace :login do
     resources :directors, except: [:index, :show]
     resources :works, except: [:index, :show]
     resources :profiles, except: [:index]
+    resources :review, except: [:index, :show]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

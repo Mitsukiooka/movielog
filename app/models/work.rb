@@ -9,6 +9,8 @@ class Work < ApplicationRecord
 
   has_many :work_genres, dependent: :destroy
   has_many :genres, through: :work_genres
+  has_many :reviews, dependent: :destroy
+  has_many :users, through: :reviews
 
   acts_as_list
 
