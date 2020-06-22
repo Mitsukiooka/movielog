@@ -1,4 +1,4 @@
-= bootstrap_form_with model: @profile, local: true do |f|
+= bootstrap_form_with model: [:login, @profile], local: true do |f|
   .form-row
     .col-md-6
       = f.text_field :first_name, autofocus: true, placeholder: 'First name', class: 'form-control'
@@ -12,9 +12,9 @@
   = f.text_area :description, placeholder: "Description", class: 'form_control'
   .form-row
     .col-md-6
-      = f.text_field :instagram, autofocus: true, placeholder: 'Instgram account', class: 'form-control'
+      = f.text_field :instagram, autofocus: true, placeholder: 'Instgram URL', class: 'form-control'
     .col-md-6
-      = f.text_field :twitter, placeholder: "Twitter account", class: 'form-control'
+      = f.text_field :twitter, placeholder: "Twitter URL", class: 'form-control'
   =f.file_field :image
   =f.hidden_field :image_cache
   -if @profile.image?

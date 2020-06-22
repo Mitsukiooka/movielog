@@ -53,11 +53,10 @@
             -#   %a{:href => "#"} www.example.com
           -# %p=@director.description
 
-          =link_to "Back to Index", directors_path(anchor: 'portfolio'), class: 'btn submitbtn'
-          %br
-          =link_to "Edit information", edit_director_path(@director), class: 'btn submitbtn'
-          %br
-          =link_to "Delete director", director_path(@director), method: :delete, data:{confirm:"Are you sure to delete?"}, class: 'btn submitbtn'
+          =link_to "Back to Index", directors_path(anchor: 'portfolio')
+      .container
+        =link_to "Edit information", edit_login_director_path(@director), class: 'btn submitbtn'
+        =link_to "Delete director", login_director_path(@director), method: :delete, data:{confirm:"Are you sure to delete?"}, class: 'btn submitbtn'
   / End Portfolio Details
 / End #main
 -# .credits

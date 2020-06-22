@@ -1,0 +1,71 @@
+/ ======= About Section =======
+%section#about.about.section-show
+  / ======= About Me =======
+  .about-me.container
+    .section-title
+      %h2 About
+      %p Your Profile
+    .row
+      .col-lg-4{"data-aos" => "fade-right"}
+        =image_tag @profile.image_url(:thumb), class: 'img-fluid'
+      .col-lg-8.pt-4.pt-lg-0.content{"data-aos" => "fade-left"}
+        %h3="#{@profile.first_name} #{@profile.last_name}"
+        %p.font-italic
+        .contact
+          .container
+            .row
+              .col-md-12.d-flex.align-items-stretch
+                .info-box
+                  %i.bx.bx-map
+                  %h3 My Address
+                  %p=@profile.from
+              .col-md-12.mt-4.d-flex.align-items-stretch
+                .info-box
+                  %i.bx.bx-share-alt
+                  %h3 Social Profiles
+                  .social-links
+                    =link_to @profile.twitter do
+                      %i.icofont-twitter
+                    =link_to @profile.instagram do
+                      %i.icofont-instagram
+              .col-md-12.mt-4.d-flex.align-items-stretch
+                .info-box
+                  %i.bx.bx-envelope
+                  %h3 Email
+                  %p=@profile.user.email
+              .col-md-12.mt-4.d-flex.align-items-stretch
+                .info-box
+                  %i.bx.bx-cake
+                  %h3 Age
+                  %p=(Date.today.strftime('%Y%m%d').to_i - @profile.age.strftime('%Y%m%d').to_i) / 10000
+              .col-md-12.mt-4.d-flex.align-items-stretch
+                .info-box
+                  %i.bx.bx-cake
+                  %h3 Date of Birth
+                  %p=@profile.age.strftime('%-d %b %Y')
+              .col-md-12.mt-4.d-flex.align-items-stretch
+                .info-box
+                  %i.bx.bx-movie
+                  %h3 My Best film
+                  %p=@profile.bestfilm
+              .col-md-12.mt-4.d-flex.align-items-stretch
+                .info-box
+                  %i.bx.bx-user-circle
+                  %h3 My Best Actor
+                  %p=@profile.bestactor
+              .col-md-12.mt-4.d-flex.align-items-stretch
+                .info-box
+                  %i.bx.bx-camera-movie
+                  %h3 My Best Director
+                  %p=@profile.bestdirector
+              .col-md-12.mt-4.d-flex.align-items-stretch
+                .info-box
+                  %i.bx.bx-message-rounded-detail
+                  %h3 Detail
+                  %p=@profile.description
+
+    =link_to "Update", edit_login_profile_path, class: 'btn submitbtn'
+
+    =link_to "Delete", login_profile_path, method: :delete, data:{confirm:"Are you sure to delete?"}, class: 'btn submitbtn'
+
+  / End About Me

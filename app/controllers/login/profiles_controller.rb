@@ -1,9 +1,5 @@
-class ProfilesController < ApplicationController
+class Login::ProfilesController < Login::ApplicationController
   before_action :set_profile, only: [:edit, :update, :show, :destroy]
-
-  def show
-  end
-
 
   def new
     @profile = current_user.build_profile
@@ -12,7 +8,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = current_user.build_profile(profile_params)
     if @profile.save
-      redirect_to profile_path(@profile)
+      redirect_to login_profile_path(@profile)
     else
       render 'new'
     end
@@ -23,7 +19,7 @@ class ProfilesController < ApplicationController
 
   def update
     if @profile.update(profile_params)
-      redirect_to profile_path(@profile)
+      redirect_to login_profile_path(@profile)
     else
       render 'edit'
     end
@@ -33,8 +29,6 @@ class ProfilesController < ApplicationController
     @profile.destroy
     redirect_to root_path
   end
-
-
 
   private
 
