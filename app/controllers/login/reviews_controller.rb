@@ -1,8 +1,9 @@
 class Login::ReviewsController < Login::ApplicationController
-  before_action :set_review, only:[:edit, :update, :destroy]
+  # before_action :set_review, only:[:edit, :update, :destroy]
 
   def new
-    @review = Review.new(@works)
+    @review = Review.new
+    @review.work_id = params[:work_id] if params[:work_id].present?
   end
 
   def create
