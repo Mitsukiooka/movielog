@@ -16,5 +16,21 @@ class Work < ApplicationRecord
 
   scope :by_update, ->{ order(updated_at: :desc) }
 
+  def avarage_rate
+    total = 0
+    reviews.each do |review|
+      total += review.rate
+    end
+    avarage_rate = total / reviews.length.to_f
+    return avarage_rate
+  end
+
+  def rate_max
+    reviews.sort_by{|x| x.rate}.last.rate
+  end
+
+  def rate_min
+    reviews.sort_by{|x| x.rate}.first.rate
+  end
 
 end

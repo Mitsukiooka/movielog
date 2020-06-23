@@ -11,10 +11,14 @@ Rails.application.routes.draw do
 
 
   namespace :login do
+    get 'my_page/index'
+    root to: 'my_page#index'
     resources :directors, except: [:index, :show]
-    resources :works, except: [:index, :show]
+    resources :works, except: [:index, :show] do
+      resources :reviews, except: [:index, :show]
+    end
     resources :profiles, except: [:index]
-    resources :reviews, except: [:index, :show]
+
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -57,15 +57,80 @@
                   =link_to genre.name, genre_path(id: genre.id, anchor:'portfolio')
             %li
               %strong="Reviews: "
-              -@work.reviews.each do |rate, comment|
-                -"#{rate}: #{comment}"
-              
-            -#   %a{:href => "#"} www.example.com
+              -@work.reviews.each do |review|
+                ="#{review.rate}: #{review.comment}/#{review.user.profile.first_name}"
           %p=@work.description
           =link_to "Back to Index", works_path(anchor: 'portfolio')
-          =link_to "Post review", new_login_review_path(@work)
+          =link_to "Post review", new_login_work_review_path(@work)
       .container
         =link_to "Edit information", edit_login_work_path(@work), class: 'btn submitbtn'
         =link_to "Delete work", login_work_path(@work), method: :delete, data:{confirm:"Are you sure to delete?"}, class: 'btn submitbtn'
-  / End Portfolio Details
-/ End #main
+
+
+  %section#about.about.section-show
+    .testimonials.container
+      .section-title
+        %h2 Reviews
+      .owl-carousel.testimonials-carousel
+        -@work.reviews.each do |review|
+          .testimonial-item
+            %p
+              %i.bx.bxs-quote-alt-left.quote-icon-left
+              ="#{review.comment}"
+              %i.bx.bxs-quote-alt-right.quote-icon-right
+            %p
+              -(1..review.rate).each do |x|
+                ★
+            =image_tag review.user.profile.image_url(:thumb), class: 'testimonial-img'
+            %h4="#{review.user.profile.first_name} #{review.user.profile.last_name}"
+
+    -if @work.reviews.present?
+      .counts.container
+        .row
+          .col-lg-4.col-md-6
+            .count-box
+              %i.icofont-slightly-smile
+              %span{"data-toggle" => "counter-up"}=@work.avarage_rate
+              %p Average
+          .col-lg-4.col-md-6
+            .count-box
+              %i.icofont-laughing
+              %span{"data-toggle" => "counter-up"}=@work.rate_max
+              %p Maximum Rate
+          .col-lg-4.col-md-6
+            .count-box
+              %i.icofont-crying
+              %span{"data-toggle" => "counter-up"}=@work.rate_min
+              %p Minimum Rate
+        -# .testimonial-item
+        -#   %p
+        -#     %i.bx.bxs-quote-alt-left.quote-icon-left
+        -#     Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+        -#     %i.bx.bxs-quote-alt-right.quote-icon-right
+        -#   %img.testimonial-img{:alt => "", :src => "assets/img/testimonials/testimonials-2.jpg"}/
+        -#   %h3 Sara Wilsson
+        -#   %h4 Designer
+        -# .testimonial-item
+        -#   %p
+        -#     %i.bx.bxs-quote-alt-left.quote-icon-left
+        -#     Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+        -#     %i.bx.bxs-quote-alt-right.quote-icon-right
+        -#   %img.testimonial-img{:alt => "", :src => "assets/img/testimonials/testimonials-3.jpg"}/
+        -#   %h3 Jena Karlis
+        -#   %h4 Store Owner
+        -# .testimonial-item
+        -#   %p
+        -#     %i.bx.bxs-quote-alt-left.quote-icon-left
+        -#     Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+        -#     %i.bx.bxs-quote-alt-right.quote-icon-right
+        -#   %img.testimonial-img{:alt => "", :src => "assets/img/testimonials/testimonials-4.jpg"}/
+        -#   %h3 Matt Brandon
+        -#   %h4 Freelancer
+        -# .testimonial-item
+        -#   %p
+        -#     %i.bx.bxs-quote-alt-left.quote-icon-left
+        -#     Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+        -#     %i.bx.bxs-quote-alt-right.quote-icon-right
+        -#   %img.testimonial-img{:alt => "", :src => "assets/img/testimonials/testimonials-5.jpg"}/
+        -#   %h3 John Larson
+        -#   %h4 Entrepreneur

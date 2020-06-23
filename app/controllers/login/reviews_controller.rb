@@ -1,13 +1,14 @@
 class Login::ReviewsController < Login::ApplicationController
-  # before_action :set_review, only:[:edit, :update, :destroy]
+  before_action :set_work
+  before_action :set_review, only:[:edit, :update, :destroy]
+
 
   def new
-    @review = Review.new
-    @review.work_id = params[:work_id] if params[:work_id].present?
+    @review = @work.reviews.build
   end
 
   def create
-    @review = Review.new(review_params)
+    @review = @work.reviews.build(review_params.merge(user_id: current_user.id))
     if @review.save
       redirect_to works_path(anchor: 'portfolio')
     else
@@ -24,11 +25,14 @@ class Login::ReviewsController < Login::ApplicationController
   private
 
   def review_params
-      params[:review].permit(:rate, :comment, work_ids: [], user_ids: [])
+      params[:review].permit(:rate, :comment)
   end
 
   def set_review
       @review = Review.find(params[:id])
   end
 
+  def set_work
+    @work = Work.find(params[:work_id])
+  end
 end

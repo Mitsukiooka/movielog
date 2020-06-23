@@ -1,6 +1,6 @@
-=bootstrap_form_with model: [:login, @review], local: true do |f|
+=bootstrap_form_with model: [:login, @work, @review], local: true do |f|
   =f.collection_select :work_id, Work.all, :id, :title, include_blank: true, class: 'form-control'
-  =f.number_field :rate, autofocus: true, placeholder: 'Rate', class: 'form-control'
+  =f.number_field :rate, autofocus: true, placeholder: 'Rate(0-5)', min: 0, max: 5, class: 'form-control'
   =f.text_area :comment, placeholder: 'Comment', class: 'form-control'
 
   .text-center

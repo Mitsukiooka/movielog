@@ -1,0 +1,38 @@
+/ ======= About Section =======
+%section#about.about.section-show
+  / ======= About Me =======
+  .about-me.container
+    .section-title
+      %h2 My Page
+      %p My Page
+    .row
+      .col-lg-4{"data-aos" => "fade-right"}
+        =image_tag @profile.image_url(:thumb), class: 'img-fluid'
+      .col-lg-8.pt-4.pt-lg-0.content{"data-aos" => "fade-left"}
+        %h3="#{@profile.first_name} #{@profile.last_name}"
+        %p.font-italic
+        .contact
+          .container
+            .row
+              .col-md-12.d-flex.align-items-stretch
+                .info-box
+                  %i.bx.bx-map
+                  %h3 My Address
+                  %p=@profile.from
+              .col-md-12.mt-4.d-flex.align-items-stretch
+                .info-box
+                  %i.bx.bx-share-alt
+                  %h3 Social Profiles
+                  .social-links
+                    =link_to @profile.twitter do
+                      %i.icofont-twitter
+                    =link_to @profile.instagram do
+                      %i.icofont-instagram
+          .container
+            =link_to "Profile Detail", login_profile_path(@profile), class: 'btn submitbtn'
+            =link_to "Edit Profile", edit_login_profile_path(@profile), class: 'btn submitbtn'
+            =link_to "Delete Profile", login_profile_path(@profile), method: :delete, data:{confirm:"Are you sure to delete?"}, class: 'btn submitbtn'
+-# -if current_user.profile.try(:id).present?
+-#   =link_to "Profile", login_profile_path(current_user.profile)
+-# -else
+-#   =link_to "Profile", new_login_profile_path
