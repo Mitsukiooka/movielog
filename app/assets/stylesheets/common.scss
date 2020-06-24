@@ -52,3 +52,72 @@
   border: 1px solid #ff1493;
   border-radius: 100%;
 }
+
+.review-section {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  top: 140px;
+  bottom: 100%;
+  opacity: 0;
+  transition: ease-in-out 0.4s;
+  z-index: 2;
+}
+.review-section.section-show {
+  top: 100px;
+  bottom: auto;
+  opacity: 1;
+  padding-bottom: 45px;
+}
+.review-section .container {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 30px;
+}
+@media (max-width: 768px) {
+  .review-section {
+    top: 120px;
+  }
+  .review-section.section-show {
+    top: 80px;
+  }
+}
+.review-section-title h2 {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0;
+  line-height: 1px;
+  margin: 0 0 20px 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  font-family: "Poppins", sans-serif;
+}
+.review-section-title h2::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: #ff1493;
+  margin: 4px 10px;
+}
+.review-section-title p {
+  margin: 0;
+  margin: -15px 0 15px 0;
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
+.testimonials .testimonial-item .mypage h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0px 0 5px 0px;
+  color: #fff;
+}
+.testimonials .testimonial-item .mypage h4 {
+  font-size: 14px;
+  color: #999;
+  margin: 0 0 5px 0;
+}

@@ -20,6 +20,16 @@ class Login::ReviewsController < Login::ApplicationController
   end
 
   def update
+    if @review.update(review_params)
+      redirect_to works_path(anchor: 'portfolio')
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @review.destroy
+    redirect_to login_my_page_index_path
   end
 
   private
