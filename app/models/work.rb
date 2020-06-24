@@ -33,7 +33,12 @@ class Work < ApplicationRecord
     reviews.sort_by{|x| x.rate}.first.rate
   end
 
+
   def my_review(user)
-    reviews.find_by(user_id: user.id)
+    if current_user.present?
+      reviews.find_by(user_id: user.id)
+    else
+      reviews.all
+    end
   end
 end
