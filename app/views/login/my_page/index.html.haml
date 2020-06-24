@@ -32,6 +32,24 @@
             =link_to "Profile Detail", login_profile_path(@profile), class: 'btn submitbtn'
             =link_to "Edit Profile", edit_login_profile_path(@profile), class: 'btn submitbtn'
             =link_to "Delete Profile", login_profile_path(@profile), method: :delete, data:{confirm:"Are you sure to delete?"}, class: 'btn submitbtn'
+
+
+  .testimonials.container
+    .section-title
+      %h2 Reviews
+    .owl-carousel.testimonials-carousel
+      -@reviews.each do |review|
+        .testimonial-item
+          %p
+            %i.bx.bxs-quote-alt-left.quote-icon-left
+            ="#{review.comment} / #{review.updated_at.strftime('%-d %b %Y')}"
+            %i.bx.bxs-quote-alt-right.quote-icon-right
+          
+            -(1..review.rate).each do |x|
+              ★
+            %h3="#{review.work.title}"
+          -# =image_tag review.user.profile.image_url(:thumb), class: 'testimonial-img'
+
 -# -if current_user.profile.try(:id).present?
 -#   =link_to "Profile", login_profile_path(current_user.profile)
 -# -else
