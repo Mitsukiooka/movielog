@@ -40,10 +40,10 @@
     .row
       .col-lg-12.d-flex.justify-content-center
         %ul#portfolio-flters
-          %li.filter-active
+          %li{'data-id' => "0"}
             =link_to 'All', works_path(anchor: 'portfolio'), class: 'link_white'
           -Genre.all.each do |genre|
-            %li
+            %li{'data-id' => "#{genre.id}"}
               =link_to genre.name, genre_path(id: genre.id, anchor: 'portfolio'), class: 'link_white'
     .row.portfolio-container
       -@works.each do |work|
@@ -68,8 +68,9 @@
                   %i.bx.bx-link
 
     =paginate @works, params: {anchor: 'portfolio'}
-    .container
-      =link_to 'Add new movie', new_login_work_path, class: 'btn submitbtn'
+    -if user_signed_in?
+      .container
+        =link_to 'Add new movie', new_login_work_path, class: 'btn submitbtn'
 / ======= Contact Section =======
 -# %section#contact.contact
 -#   .container

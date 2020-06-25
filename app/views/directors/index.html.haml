@@ -47,5 +47,6 @@
                 =link_to director_path(director) do
                   %i.bx.bx-link
     =paginate @directors, params: {anchor: 'portfolio'}
-    .container
-      =link_to 'Add new director', new_login_director_path, class: 'btn submitbtn'
+    -if user_signed_in?
+      .container
+        =link_to 'Add new director', new_login_director_path, class: 'btn submitbtn'

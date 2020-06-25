@@ -29,7 +29,7 @@
     .container
       .row
         .col-lg-8
-          -# %h2.portfolio-title This is an example of portfolio detail
+          %h2.portfolio-title
           .owl-carousel.portfolio-details-carousel
             -# %img.img-fluid{:alt => "", :src => "assets/img/portfolio/portfolio-details-1.jpg"}/
             -if @work.image.present?
@@ -61,51 +61,57 @@
             -#     ="#{review.rate}: #{review.comment}/#{review.user.profile.first_name}"
           %p=@work.description
           =link_to "Back to Index", works_path(anchor: 'portfolio'), class: 'btn submitbtn'
-          -unless @work.my_review(current_user).present?
-            =link_to "Post review", new_login_work_review_path(@work), class: 'btn submitbtn'
-          -else
-            =link_to "Edit review", edit_login_work_review_path(work_id: @work, id: @work.my_review(current_user).id), class: 'btn submitbtn'
+          -if user_signed_in?
+            -if @work.my_review(current_user).present?
+              =link_to "Edit review", edit_login_work_review_path(work_id: @work, id: @work.my_review(current_user).id), class: 'btn submitbtn'
+            -else
+              =link_to "Post review", new_login_work_review_path(@work), class: 'btn submitbtn'
+      -if user_signed_in?
+        .container
+          =link_to "Edit information", edit_login_work_path(@work), class: 'btn submitbtn'
+          =link_to "Delete work", login_work_path(@work), method: :delete, data:{confirm:"Are you sure to delete?"}, class: 'btn submitbtn'
+
+    -if @work.reviews.present?
       .container
-        =link_to "Edit information", edit_login_work_path(@work), class: 'btn submitbtn'
-        =link_to "Delete work", login_work_path(@work), method: :delete, data:{confirm:"Are you sure to delete?"}, class: 'btn submitbtn'
-
-
-    .container
-      .review-section.section-show
-        .testimonials.container
-          .section-title
-            %h2 Reviews
-          .owl-carousel.testimonials-carousel
-            -@work.reviews.each do |review|
-              .testimonial-item
-                %p
-                  %i.bx.bxs-quote-alt-left.quote-icon-left
-                  =review.comment
-                  %i.bx.bxs-quote-alt-right.quote-icon-right
-                %p
-                  -(1..review.rate).each do |x|
-                    ★
-                =image_tag review.user.profile.image_url(:thumb), class: 'testimonial-img'
-                %h4="#{review.user.profile.first_name} #{review.user.profile.last_name}"
-
-        -if @work.reviews.present?
+        .review-section.section-show
+          .testimonials.container
+            .section-title
+              %h2 Reviews
+            .owl-carousel.testimonials-carousel
+              -@work.reviews.each do |review|
+                .testimonial-item
+                  %p
+                    %i.bx.bxs-quote-alt-left.quote-icon-left
+                    =review.comment
+                    %i.bx.bxs-quote-alt-right.quote-icon-right
+                  %p
+                    -(1..review.rate).each do |x|
+                      ★
+                  =image_tag review.user.profile.image_url(:thumb), class: 'testimonial-img'
+                  %h4="#{review.user.profile.first_name} #{review.user.profile.last_name}"
           .counts.container
             .row
-              .col-lg-4.col-md-6
+              .col-lg-3.col-md-6
                 .count-box
                   %i.icofont-slightly-smile
                   %span{"data-toggle" => "counter-up"}=@work.avarage_rate
                   %p Average
-              .col-lg-4.col-md-6
+              .col-lg-3.col-md-6
+                .count-box
+                  %i.icofont-listing-number
+                  %span{"data-toggle" => "counter-up"}=@work.reviews.length
+                  %p Total Review
+              .col-lg-3.col-md-6
                 .count-box
                   %i.icofont-laughing
                   %span{"data-toggle" => "counter-up"}=@work.rate_max
                   %p Maximum Rate
-              .col-lg-4.col-md-6
+              .col-lg-3.col-md-6
                 .count-box
                   %i.icofont-crying
                   %span{"data-toggle" => "counter-up"}=@work.rate_min
                   %p Minimum Rate
+
 
 
 

@@ -21,7 +21,7 @@ class Work < ApplicationRecord
     reviews.each do |review|
       total += review.rate
     end
-    avarage_rate = total / reviews.length.to_f
+    avarage_rate = (total.to_f / reviews.length.to_f).ceil(1)
     return avarage_rate
   end
 
@@ -35,10 +35,6 @@ class Work < ApplicationRecord
 
 
   def my_review(user)
-    if current_user.present?
       reviews.find_by(user_id: user.id)
-    else
-      reviews.all
-    end
   end
 end

@@ -9,3 +9,4 @@
 //= require isotope-layout/isotope.pkgd.min
 //= require venobox/venobox.min
 //= require main
+//= require common

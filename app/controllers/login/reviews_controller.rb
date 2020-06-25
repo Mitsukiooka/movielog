@@ -4,7 +4,11 @@ class Login::ReviewsController < Login::ApplicationController
 
 
   def new
-    @review = @work.reviews.build
+    unless current_user.reviews.find_by(work_id: params[:work_id]).present?
+      @review = @work.reviews.build
+    else
+      redirect_to work_path(@work), notice: 'Your review has already been posted!!'
+    end
   end
 
   def create
