@@ -8,7 +8,8 @@ class Login::ReviewsController < Login::ApplicationController
       unless current_user.reviews.find_by(work_id: params[:work_id]).present?
         @review = @work.reviews.build
       else
-        redirect_to work_path(@work), notice: 'Your review has already been posted!!'
+        redirect_to work_path(@work)
+        flash[:notice] = 'Your review has already been posted!!'
       end
     else
       redirect_to new_login_profile_path
