@@ -56,7 +56,6 @@ gem 'cloudinary'
 
 gem 'fog'
 
-gem 'font-awesome-rails'
 
 gem 'font_awesome5_rails'
 

@@ -26,9 +26,9 @@
                     %h3 Social Profiles
                     .social-links
                       =link_to @profile.twitter do
-                        %i.fa.fa-twitter
+                        %i.bx.bx-twitter
                       =link_to @profile.instagram do
-                        %i.fa.fa-instagram
+                        %box-icon{:name => "instagram", :type => "logo"}
             .container
               =link_to "Profile Detail", login_profile_path(@profile), class: 'btn submitbtn'
               =link_to "Edit Profile", edit_login_profile_path(@profile), class: 'btn submitbtn'
