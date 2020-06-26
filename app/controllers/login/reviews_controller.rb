@@ -4,10 +4,15 @@ class Login::ReviewsController < Login::ApplicationController
 
 
   def new
-    unless current_user.reviews.find_by(work_id: params[:work_id]).present?
-      @review = @work.reviews.build
+    if current_user.profile.present?
+      unless current_user.reviews.find_by(work_id: params[:work_id]).present?
+        @review = @work.reviews.build
+      else
+        redirect_to work_path(@work), notice: 'Your review has already been posted!!'
+      end
     else
-      redirect_to work_path(@work), notice: 'Your review has already been posted!!'
+      redirect_to new_login_profile_path
+      flash[:notice] = 'Plese register your profile first!'
     end
   end
 
