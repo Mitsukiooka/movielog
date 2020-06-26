@@ -56,6 +56,10 @@ gem 'cloudinary'
 
 gem 'fog'
 
+gem 'font-awesome-rails'
+
+gem 'font_awesome5_rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

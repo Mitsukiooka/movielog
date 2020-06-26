@@ -93,22 +93,22 @@
             .row
               .col-lg-3.col-md-6
                 .count-box
-                  %i.icofont-slightly-smile
+                  =fa_icon('grin')
                   %span{"data-toggle" => "counter-up"}=@work.avarage_rate
                   %p Average
               .col-lg-3.col-md-6
                 .count-box
-                  %i.icofont-listing-number
+                  %i.fa.fa-list-ol
                   %span{"data-toggle" => "counter-up"}=@work.reviews.length
                   %p Total Review
               .col-lg-3.col-md-6
                 .count-box
-                  %i.icofont-laughing
+                  =fa_icon('laugh-squint')
                   %span{"data-toggle" => "counter-up"}=@work.rate_max
                   %p Maximum Rate
               .col-lg-3.col-md-6
                 .count-box
-                  %i.icofont-crying
+                  =fa_icon('sad-cry')
                   %span{"data-toggle" => "counter-up"}=@work.rate_min
                   %p Minimum Rate
 

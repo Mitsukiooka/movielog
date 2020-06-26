@@ -26,9 +26,9 @@
                     %h3 Social Profiles
                     .social-links
                       =link_to @profile.twitter do
-                        %i.icofont-twitter
+                        %i.fa.fa-twitter
                       =link_to @profile.instagram do
-                        %i.icofont-instagram
+                        %i.fa.fa-instagram
             .container
               =link_to "Profile Detail", login_profile_path(@profile), class: 'btn submitbtn'
               =link_to "Edit Profile", edit_login_profile_path(@profile), class: 'btn submitbtn'
@@ -57,9 +57,9 @@
                 .mypage
                   %h4=review.updated_at.strftime('%-d %b %Y')
                 =link_to edit_login_work_review_path(work_id: review.work, id: review.id) do
-                  %i.icofont-pencil-alt-2
+                  %i.fa.fa-edit
                 =link_to login_work_review_path(work_id: review.work, id: review.id), method: :delete, data:{confirm:"Are you sure to delete?"} do
-                  %i.icofont-trash
+                  %i.fa.fa-trash
     -else
       .testimonials.container
         .section-title
