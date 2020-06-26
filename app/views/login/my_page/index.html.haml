@@ -26,13 +26,16 @@
                     %h3 Social Profiles
                     .social-links
                       =link_to @profile.twitter do
-                        %i.bx.bx-twitter
+                        %i.fab.fa-twitter
                       =link_to @profile.instagram do
-                        %box-icon{:name => "instagram", :type => "logo"}
+                        %i.fab.fa-instagram
             .container
-              =link_to "Profile Detail", login_profile_path(@profile), class: 'btn submitbtn'
-              =link_to "Edit Profile", edit_login_profile_path(@profile), class: 'btn submitbtn'
-              =link_to "Delete Profile", login_profile_path(@profile), method: :delete, data:{confirm:"Are you sure to delete?"}, class: 'btn submitbtn'
+              =link_to login_profile_path(@profile) do
+                %i.fas.fa-info-circle
+              =link_to edit_login_profile_path(@profile) do
+                %i.fa.fa-edit
+              =link_to login_profile_path(@profile), method: :delete, data:{confirm:"Are you sure to delete?"} do
+                %i.fa.fa-trash
 
     -else
       =link_to "Please create your profile", new_login_profile_path, class: 'btn submitbtn'
