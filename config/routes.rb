@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'home/index'
   root to: 'home#index'
-  resources :works, only: [:index, :show] do
-    get 'higher' => 'works#move_higher', as: 'higher', on: :member
-  end
+  resources :works, only: [:index, :show] 
   resources :directors, only: [:index, :show]
   resources :genres, only: [:show]
 
