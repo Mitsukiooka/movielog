@@ -5,13 +5,18 @@
   =f.collection_check_boxes :genre_ids, Genre.all, :id, :name, class: 'form-control'
   =f.text_field :starring, autofocus: true, placeholder: 'Starring', class: 'form-control'
   =f.text_area :description, placeholder: 'Description'
-  =f.file_field :image
-  =f.hidden_field :image_cache
-  -if @work.image?
-    .m-t-5
-      =image_tag @work.image_url(:thumb)
-      .checkbox.checkbox-primary.m-t-5
-        =f.check_box_without_bootstrap :remove_image
-        =f.label :remove_image, 'Image Delete'
+  =f.file_field :image, direct_upload: true
+  -if @work.image.present?
+    .checkbox.checkbox-primary.m-t-5
+      =f.check_box_without_bootstrap :remove_image_id,{}, @work.id, false
+      =f.label :remove_image_id, "Image Delete"
+      =f.hidden_field :image_blob_id, value: @work.image.blob_id if @work.image.attached?
+  -# =f.hidden_field :image_cache
+  -# -if @work.image.present?
+  -#   .m-t-5
+  -#     =image_tag @work.image_url(:thumb)
+  -#     .checkbox.checkbox-primary.m-t-5
+  -#       =f.check_box_without_bootstrap :remove_image
+  -#       =f.label :remove_image, 'Image Delete'
   .text-center
     = f.submit "Submit", class: 'btn submitbtn'

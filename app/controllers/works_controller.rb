@@ -6,7 +6,7 @@ class WorksController < ApplicationController
 
   def index
     # @works = Work.all.by_update.page(params[:page]).per(9)
-    @q = Work.all.by_update.page(params[:page]).per(9).ransack(params[:q])
+    @q = Work.with_attached_image.by_update.page(params[:page]).per(9).ransack(params[:q])
     @works = @q.result(distinct: true)
   end
 

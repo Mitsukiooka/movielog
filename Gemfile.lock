@@ -541,6 +541,7 @@ DEPENDENCIES
   font-awesome-rails
   font_awesome5_rails
   haml-rails (~> 2.0)
+  image_processing (~> 1.2)
   jbuilder (~> 2.7)
   jquery-rails
   kaminari

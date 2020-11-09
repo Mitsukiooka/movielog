@@ -10,3 +10,4 @@
 //= require venobox/venobox.min
 //= require main
 //= require common
+//= require activestorage

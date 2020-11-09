@@ -59,6 +59,7 @@ gem 'fog'
 
 gem 'font_awesome5_rails'
 
+gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -51,7 +51,7 @@
           .portfolio-wrap
             -# %img.img-fluid{:alt => "", :src => "/img/portfolio/portfolio-1.jpg"}/
             -if work.image.present?
-              =image_tag work.image_url(:thumb), class: 'img-fluid'
+              =image_tag work.image.variant(gravity: :north, resize:"350x350^", crop:"350x350+0+0").processed, class: 'img-fluid'
             -else
               =image_tag '/img/default_work.png', class: 'index_thumb'
             .portfolio-info
@@ -60,7 +60,7 @@
               %p=work.director.name
               .portfolio-links
                 -if work.image.present?
-                  %a.venobox{"data-gall" => "portfolioGallery", :href => "#{work.image_url}", :title => "App 1"}
+                  %a.venobox{"data-gall" => "portfolioGallery", :href => "#{work.image}", :title => "App 1"}
                     %i.bx.bx-plus
                 -# %a.venobox{"data-gall" => "portfolioDetailsGallery", "data-vbtype" => "iframe", :href => "portfolio-details.html", :title => "Portfolio Details"}
                 -#   %i.bx.bx-link
