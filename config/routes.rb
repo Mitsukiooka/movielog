@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   resources :directors, only: [:index, :show]
   resources :genres, only: [:show]
 
-
+  get 'help/' => 'help#index'
+  post 'help/submit' => 'help#submit'
+  get 'help/received' => 'help#received'
 
   namespace :login do
     get 'my_page/index'

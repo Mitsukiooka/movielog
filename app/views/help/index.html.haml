@@ -1,0 +1,7 @@
+=bootstrap_form_for @help, url: help_submit_path do |f|
+  =f.text_field :email
+  =f.text_field :name
+  =f.text_field :first_name
+  =f.text_field :inquiry_title
+  =f.text_area :inquiry_body, class: 'autosize'
+  =f.submit
