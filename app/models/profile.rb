@@ -1,4 +1,6 @@
 class Profile < ApplicationRecord
+  include From
+  
   mount_uploader :image, WorkImageUploader
 
   validates :first_name, presence: true
