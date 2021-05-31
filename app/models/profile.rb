@@ -1,8 +1,7 @@
 class Profile < ApplicationRecord
   include From
-  
-  mount_uploader :image, WorkImageUploader
 
+  mount_uploader :image, WorkImageUploader
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :from, presence: true
