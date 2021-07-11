@@ -18,7 +18,10 @@ Rails.application.routes.draw do
       resources :reviews, except: [:index, :show]
     end
     resources :profiles, except: [:index]
+  end
 
+  namespace :api do
+    resources :works, only: [:index, :create, :update]
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
