@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
+  
   get 'home/index'
   root to: 'home#index'
   resources :works, only: [:index, :show] 
   resources :directors, only: [:index, :show]
   resources :genres, only: [:show]
+
 
   get 'help/' => 'help#index'
   post 'help/submit' => 'help#submit'
@@ -23,5 +27,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :works, only: [:index, :create, :update]
   end
+
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

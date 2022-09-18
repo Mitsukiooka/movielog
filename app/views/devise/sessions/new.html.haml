@@ -18,5 +18,7 @@
           = f.label :remember_me
       .text-center
         = f.submit "Sign in", class: 'btn submitbtn'
+    .section-title 
+      = link_to "Googleでログイン", "/users/auth/google_oauth2", method: :post
 
     = render "devise/shared/links"

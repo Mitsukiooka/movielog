@@ -65,6 +65,8 @@ gem 'omniauth-google-oauth2'             # Google認証
 gem 'omniauth-github'                    # GitHub認証
 gem 'dotenv-rails'  
 
+gem 'omniauth-rails_csrf_protection'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
